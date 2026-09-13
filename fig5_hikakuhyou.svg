@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <style>
+      .main-title { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-weight: bold; font-size: 28px; fill: #1a202c; }
+      .th-text { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-weight: bold; font-size: 24px; text-anchor: middle; }
+      .td-item { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-weight: bold; font-size: 21px; fill: #2d3748; text-anchor: middle; }
+      .td-val { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-weight: bold; font-size: 22px; fill: #1a202c; }
+      .td-sub { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-size: 16px; fill: #4a5568; }
+      .banner-text { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-weight: bold; font-size: 24px; fill: #1a73e8; text-anchor: middle; }
+    </style>
+  </defs>
+  <rect width="1600" height="900" fill="#ffffff" />
+  <rect x="20" y="20" width="1560" height="860" fill="none" stroke="#e2e8f0" stroke-width="2" rx="16" />
+
+  <!-- タイトルバー -->
+  <rect x="40" y="35" width="8" height="38" fill="#1a73e8" rx="3" />
+  <text x="60" y="64" class="main-title">【図5】労働契約と利用契約の比較表</text>
+
+  <!-- 比較テーブル (x: 80, y: 110, w: 1440, h: 630) -->
+  <!-- ヘッダー -->
+  <g transform="translate(80, 110)">
+    <rect x="0" y="0" width="340" height="75" rx="10" fill="#edf2f7" stroke="#cbd5e0" stroke-width="2" />
+    <text x="170" y="47" class="th-text" fill="#4a5568">比較項目</text>
+
+    <rect x="360" y="0" width="530" height="75" rx="10" fill="#ebf8ff" stroke="#1a73e8" stroke-width="2.5" />
+    <text x="625" y="47" class="th-text" fill="#1a56db">🏢 労働契約（A型・一般就労）</text>
+
+    <rect x="910" y="0" width="530" height="75" rx="10" fill="#fffaf0" stroke="#dd6b20" stroke-width="2.5" />
+    <text x="1175" y="47" class="th-text" fill="#c05621">🏡 利用契約（B型）</text>
+  </g>
+
+  <!-- 行1：当事者 -->
+  <g transform="translate(80, 200)">
+    <rect x="0" y="0" width="340" height="100" rx="10" fill="#f7fafc" stroke="#e2e8f0" stroke-width="2" />
+    <text x="170" y="58" class="td-item">当事者</text>
+
+    <rect x="360" y="0" width="530" height="100" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" />
+    <text x="390" y="46" class="td-val">会社 と 労働者 👥</text>
+    <text x="390" y="76" class="td-sub">労働基準法などの労働法規で保護される対等な関係</text>
+
+    <rect x="910" y="0" width="530" height="100" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" />
+    <text x="940" y="46" class="td-val">事業所 と 利用者 🤝</text>
+    <text x="940" y="76" class="td-sub">障害者総合支援法に基づく福祉サービスの提供関係</text>
+  </g>
+
+  <!-- 行2：受け取るもの -->
+  <g transform="translate(80, 315)">
+    <rect x="0" y="0" width="340" height="100" rx="10" fill="#f7fafc" stroke="#e2e8f0" stroke-width="2" />
+    <text x="170" y="58" class="td-item">受け取るもの</text>
+
+    <rect x="360" y="0" width="530" height="100" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" />
+    <text x="390" y="46" class="td-val" fill="#1a73e8">賃金（給料） 💴</text>
+    <text x="390" y="76" class="td-sub">働いた対価として支払われる金銭（請求権あり）</text>
+
+    <rect x="910" y="0" width="530" height="100" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" />
+    <text x="940" y="46" class="td-val" fill="#c05621">工賃 🎨</text>
+    <text x="940" y="76" class="td-sub">生産活動の事業収入から必要経費を除いて配分される報酬</text>
+  </g>
+
+  <!-- 行3：労働基準法・最低賃金法の適用 -->
+  <g transform="translate(80, 430)">
+    <rect x="0" y="0" width="340" height="100" rx="10" fill="#f7fafc" stroke="#e2e8f0" stroke-width="2" />
+    <text x="170" y="46" class="td-item">労働基準法・</text>
+    <text x="170" y="72" class="td-item">最低賃金法の適用</text>
+
+    <rect x="360" y="0" width="530" height="100" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" />
+    <text x="390" y="46" class="td-val" fill="#1a73e8">あり ⭕</text>
+    <text x="390" y="76" class="td-sub">時給は最低賃金以上が完全保障／法定労働時間・有休あり</text>
+
+    <rect x="910" y="0" width="530" height="100" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" />
+    <text x="940" y="46" class="td-val" fill="#c05621">原則なし 🌿</text>
+    <text x="940" y="76" class="td-sub">雇用関係ではないため適用除外（体調に合わせて通所可能）</text>
+  </g>
+
+  <!-- 行4：指揮命令 -->
+  <g transform="translate(80, 545)">
+    <rect x="0" y="0" width="340" height="100" rx="10" fill="#f7fafc" stroke="#e2e8f0" stroke-width="2" />
+    <text x="170" y="58" class="td-item">指揮命令</text>
+
+    <rect x="360" y="0" width="530" height="100" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" />
+    <text x="390" y="46" class="td-val" fill="#1a73e8">あり 👉</text>
+    <text x="390" y="76" class="td-sub">会社の指示命令（AIツールの指定・納期等）に従う義務</text>
+
+    <rect x="910" y="0" width="530" height="100" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" />
+    <text x="940" y="46" class="td-val" fill="#c05621">支援・助言（指揮命令ではない） 🤝</text>
+    <text x="940" y="76" class="td-sub">個人のペースや目標に応じたサポート・技術習得の助言</text>
+  </g>
+
+  <!-- 行5：安全への配慮 -->
+  <g transform="translate(80, 660)">
+    <rect x="0" y="0" width="340" height="100" rx="10" fill="#f7fafc" stroke="#e2e8f0" stroke-width="2" />
+    <text x="170" y="58" class="td-item">安全への配慮</text>
+
+    <rect x="360" y="0" width="530" height="100" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" />
+    <text x="390" y="46" class="td-val" fill="#c53030">安全配慮義務（労働契約法5条） 🛡️</text>
+    <text x="390" y="76" class="td-sub">会社は労働者の心身の健康と安全を確保する法的義務がある</text>
+
+    <rect x="910" y="0" width="530" height="100" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" />
+    <text x="940" y="46" class="td-val" fill="#c53030">事業所の安全配慮・支援義務 🛡️</text>
+    <text x="940" y="76" class="td-sub">実質的に安全配慮義務と同様、利用者の健康や安全に配慮する</text>
+  </g>
+
+  <!-- 下部バナー -->
+  <g transform="translate(80, 785)">
+    <rect x="0" y="0" width="1440" height="70" rx="14" fill="#ebf8ff" stroke="#1a73e8" stroke-width="2.5" class="box-shadow" />
+    <text x="720" y="44" class="banner-text">🌟 将来A型や一般就労に進んだときは、図2の権利・義務がそのまま自分のものになる</text>
+  </g>
+</svg>

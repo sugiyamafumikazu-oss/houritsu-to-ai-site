@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <style>
+      .title { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-weight: bold; fill: #1a202c; }
+      .party-name { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-weight: bold; font-size: 34px; fill: #1a202c; text-anchor: middle; }
+      .party-sub { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-weight: 500; font-size: 20px; fill: #4a5568; text-anchor: middle; }
+      .label-debt { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-weight: bold; font-size: 20px; fill: #c53030; }
+      .label-claim { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-weight: bold; font-size: 20px; fill: #1a73e8; }
+      .arrow-text { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-weight: bold; font-size: 21px; fill: #2d3748; }
+      .equal-sign { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-weight: 900; font-size: 30px; fill: #718096; text-anchor: middle; }
+      .tag-text { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-weight: bold; font-size: 20px; fill: #1a73e8; text-anchor: middle; }
+      .tag-text-highlight { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-weight: bold; font-size: 20px; fill: #c05621; text-anchor: middle; }
+      .bubble-text { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-size: 19px; fill: #2d3748; }
+      .goal-text { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-weight: bold; font-size: 23px; fill: #1a73e8; text-anchor: end; }
+      .box-shadow { filter: drop-shadow(0 6px 12px rgba(0,0,0,0.06)); }
+    </style>
+    <!-- 矢印マーカー -->
+    <marker id="arrow-right-blue" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#1a73e8" />
+    </marker>
+    <marker id="arrow-left-blue" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#1a73e8" />
+    </marker>
+    <marker id="arrow-right-red" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#e53e3e" />
+    </marker>
+    <marker id="arrow-left-red" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#e53e3e" />
+    </marker>
+    <marker id="arrow-dashed" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#718096" />
+    </marker>
+    <marker id="arrow-small" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M 0 1 L 7 4 L 0 7 z" fill="#4a5568" />
+    </marker>
+  </defs>
+  <rect width="1600" height="900" fill="#ffffff" />
+  <rect x="20" y="20" width="1560" height="860" fill="none" stroke="#e2e8f0" stroke-width="2" rx="16" />
+  <!-- タイトルバー -->
+  <rect x="40" y="35" width="8" height="38" fill="#1a73e8" rx="3" />
+  <text x="60" y="64" class="title" font-size="28">【図1】売買契約の構造</text>
+
+  <g transform="translate(220, 390)">
+    <rect x="-140" y="-180" width="280" height="370" rx="20" fill="#f7fafc" stroke="#cbd5e0" stroke-width="3" class="box-shadow" />
+    <rect x="-140" y="-180" width="280" height="75" rx="20" fill="#feebc8" />
+    <rect x="-140" y="-120" width="280" height="15" fill="#feebc8" />
+    <text x="0" y="-130" class="party-name" fill="#7b341e">🏪 売主</text>
+    <g transform="translate(0, 35)">
+  <g transform="scale(1.2)">
+    <!-- テント屋根 -->
+    <path d="M -30 -14 L 30 -14 L 24 -34 L -24 -34 Z" fill="#feebc8" stroke="#dd6b20" stroke-width="2.5" />
+    <line x1="-12" y1="-34" x2="-15" y2="-14" stroke="#dd6b20" stroke-width="2" />
+    <line x1="12" y1="-34" x2="15" y2="-14" stroke="#dd6b20" stroke-width="2" />
+    <!-- 建物本体 -->
+    <rect x="-26" y="-14" width="52" height="48" rx="2" fill="#fffaf0" stroke="#dd6b20" stroke-width="2.5" />
+    <!-- ドアと窓 -->
+    <rect x="-8" y="6" width="16" height="28" fill="#feebc8" stroke="#dd6b20" stroke-width="2" />
+    <rect x="-20" y="-4" width="10" height="14" fill="#ffffff" stroke="#dd6b20" stroke-width="1.5" />
+    <rect x="10" y="-4" width="10" height="14" fill="#ffffff" stroke="#dd6b20" stroke-width="1.5" />
+  </g>
+</g>
+    <text x="0" y="130" class="party-sub">商品を売る側（お店）</text>
+    <rect x="-100" y="150" width="200" height="28" rx="14" fill="#ffffff" stroke="#cbd5e0" />
+    <text x="0" y="169" font-family="'Hiragino Kaku Gothic ProN', Meiryo, sans-serif" font-size="14" font-weight="bold" fill="#718096" text-anchor="middle">商品を引き渡す立場</text>
+  </g>
+  
+  <g transform="translate(1380, 390)">
+    <rect x="-140" y="-180" width="280" height="370" rx="20" fill="#f7fafc" stroke="#cbd5e0" stroke-width="3" class="box-shadow" />
+    <rect x="-140" y="-180" width="280" height="75" rx="20" fill="#fed7d7" />
+    <rect x="-140" y="-120" width="280" height="15" fill="#fed7d7" />
+    <text x="0" y="-130" class="party-name" fill="#9b2c2c">🛒 買主</text>
+    <g transform="translate(0, 35)">
+  <g transform="scale(1.2)">
+    <!-- 頭 -->
+    <circle cx="0" cy="-18" r="16" fill="#fff5f5" stroke="#c53030" stroke-width="2.5" />
+    <!-- 笑顔 -->
+    <path d="M -6 -14 Q 0 -8 6 -14" fill="none" stroke="#c53030" stroke-width="2" stroke-linecap="round" />
+    <!-- 体 -->
+    <path d="M -28 32 C -28 10, 28 10, 28 32" fill="#fff5f5" stroke="#c53030" stroke-width="2.5" />
+    <!-- 買い物袋 -->
+    <path d="M 12 18 L 22 18 L 24 32 L 10 32 Z" fill="#ffffff" stroke="#c53030" stroke-width="2" />
+    <path d="M 15 18 C 15 12, 19 12, 19 18" fill="none" stroke="#c53030" stroke-width="1.5" />
+  </g>
+</g>
+    <text x="0" y="130" class="party-sub">商品を買う側（お客さん）</text>
+    <rect x="-100" y="150" width="200" height="28" rx="14" fill="#ffffff" stroke="#cbd5e0" />
+    <text x="0" y="169" font-family="'Hiragino Kaku Gothic ProN', Meiryo, sans-serif" font-size="14" font-weight="bold" fill="#718096" text-anchor="middle">代金を支払う立場</text>
+  </g>
+  
+  <g transform="translate(410, 260)">
+    <line x1="10" y1="65" x2="770" y2="65" stroke="#1a73e8" stroke-width="8" marker-end="url(#arrow-right-blue)" />
+    
+    <!-- 左側：売主の債務 -->
+    <rect x="0" y="-35" width="355" height="82" rx="12" fill="#fff5f5" stroke="#feb2b2" stroke-width="2.5" class="box-shadow" />
+    <text x="20" y="-8" class="label-debt">🔴 売主の債務（しなければならないこと）</text>
+    <text x="20" y="28" class="arrow-text" font-size="22">商品を引き渡す義務 📦</text>
+
+    <!-- 中央：イコール -->
+    <circle cx="390" cy="5" r="28" fill="#edf2f7" stroke="#cbd5e0" stroke-width="2.5" />
+    <text x="390" y="16" class="equal-sign">＝</text>
+
+    <!-- 右側：買主の債権 -->
+    <rect x="425" y="-35" width="355" height="82" rx="12" fill="#ebf8ff" stroke="#bee3f8" stroke-width="2.5" class="box-shadow" />
+    <text x="445" y="-8" class="label-claim">🔵 買主の債権（求めてよい権利）</text>
+    <text x="445" y="28" class="arrow-text" font-size="22">商品の引渡しを求める権利 ✨</text>
+  </g>
+  
+  <g transform="translate(410, 460)">
+    <line x1="770" y1="65" x2="10" y2="65" stroke="#1a73e8" stroke-width="8" marker-end="url(#arrow-left-blue)" />
+    
+    <!-- 左側：売主の債権 -->
+    <rect x="0" y="-35" width="355" height="82" rx="12" fill="#ebf8ff" stroke="#bee3f8" stroke-width="2.5" class="box-shadow" />
+    <text x="20" y="-8" class="label-claim">🔵 売主の債権（求めてよい権利）</text>
+    <text x="20" y="28" class="arrow-text" font-size="22">代金の支払いを求める権利 💰</text>
+
+    <!-- 中央：イコール -->
+    <circle cx="390" cy="5" r="28" fill="#edf2f7" stroke="#cbd5e0" stroke-width="2.5" />
+    <text x="390" y="16" class="equal-sign">＝</text>
+
+    <!-- 右側：買主の債務 -->
+    <rect x="425" y="-35" width="355" height="82" rx="12" fill="#fff5f5" stroke="#feb2b2" stroke-width="2.5" class="box-shadow" />
+    <text x="445" y="-8" class="label-debt">🔴 買主の債務（しなければならないこと）</text>
+    <text x="445" y="28" class="arrow-text" font-size="22">代金を支払う義務 💴</text>
+  </g>
+  
+  <g transform="translate(460, 625)">
+    <rect x="0" y="0" width="680" height="64" rx="32" fill="#f7fafc" stroke="#4a5568" stroke-width="2" stroke-dasharray="6,4" />
+    <path d="M 340 -14 L 350 0 L 330 0 Z" fill="#4a5568" />
+    <text x="340" y="39" class="bubble-text" font-weight="bold" text-anchor="middle">💡「これください」「はい」で成立。契約書はなくてもよい（諾成）</text>
+  </g>
+  
+  <g transform="translate(80, 775)">
+    <text x="0" y="32" font-family="'Hiragino Kaku Gothic ProN', Meiryo, sans-serif" font-weight="bold" font-size="22" fill="#4a5568">契約の性質：</text>
+    <rect x="130" y="0" width="130" height="48" rx="24" fill="#ebf8ff" stroke="#1a73e8" stroke-width="2.5" />
+    <text x="195" y="31" class="tag-text">双務</text>
+    <rect x="280" y="0" width="130" height="48" rx="24" fill="#ebf8ff" stroke="#1a73e8" stroke-width="2.5" />
+    <text x="345" y="31" class="tag-text">有償</text>
+    <rect x="430" y="0" width="130" height="48" rx="24" fill="#ebf8ff" stroke="#1a73e8" stroke-width="2.5" />
+    <text x="495" y="31" class="tag-text">諾成</text>
+  </g>
+  
+  <g transform="translate(1520, 805)">
+    <text x="0" y="0" class="goal-text">🎯 契約のゴール：お互いが債務を履行し終えること（完遂）</text>
+  </g>
+  </svg>
+  

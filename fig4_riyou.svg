@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <style>
+      .title { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-weight: bold; fill: #1a202c; }
+      .party-name { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-weight: bold; font-size: 34px; fill: #1a202c; text-anchor: middle; }
+      .party-sub { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-weight: 500; font-size: 20px; fill: #4a5568; text-anchor: middle; }
+      .label-debt { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-weight: bold; font-size: 20px; fill: #c53030; }
+      .label-claim { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-weight: bold; font-size: 20px; fill: #1a73e8; }
+      .arrow-text { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-weight: bold; font-size: 21px; fill: #2d3748; }
+      .equal-sign { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-weight: 900; font-size: 30px; fill: #718096; text-anchor: middle; }
+      .tag-text { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-weight: bold; font-size: 20px; fill: #1a73e8; text-anchor: middle; }
+      .tag-text-highlight { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-weight: bold; font-size: 20px; fill: #c05621; text-anchor: middle; }
+      .bubble-text { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-size: 19px; fill: #2d3748; }
+      .goal-text { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-weight: bold; font-size: 23px; fill: #1a73e8; text-anchor: end; }
+      .box-shadow { filter: drop-shadow(0 6px 12px rgba(0,0,0,0.06)); }
+    </style>
+    <!-- 矢印マーカー -->
+    <marker id="arrow-right-blue" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#1a73e8" />
+    </marker>
+    <marker id="arrow-left-blue" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#1a73e8" />
+    </marker>
+    <marker id="arrow-right-red" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#e53e3e" />
+    </marker>
+    <marker id="arrow-left-red" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#e53e3e" />
+    </marker>
+    <marker id="arrow-dashed" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#718096" />
+    </marker>
+    <marker id="arrow-small" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M 0 1 L 7 4 L 0 7 z" fill="#4a5568" />
+    </marker>
+  </defs>
+  <rect width="1600" height="900" fill="#ffffff" />
+  <rect x="20" y="20" width="1560" height="860" fill="none" stroke="#e2e8f0" stroke-width="2" rx="16" />
+  <!-- タイトルバー -->
+  <rect x="40" y="35" width="8" height="38" fill="#1a73e8" rx="3" />
+  <text x="60" y="64" class="title" font-size="28">【図4】B型事業所の利用契約の構造</text>
+
+  <g transform="translate(800, 75)">
+    <rect x="-150" y="-30" width="300" height="60" rx="12" fill="#edf2f7" stroke="#a0aec0" stroke-width="2" class="box-shadow" />
+    <text x="0" y="6" font-family="'Hiragino Kaku Gothic ProN', Meiryo, sans-serif" font-weight="bold" font-size="19" fill="#2d3748" text-anchor="middle">🏛️ 市町村（給付費を支給）</text>
+    <path d="M -150 0 C -320 0, -460 100, -500 190" fill="none" stroke="#718096" stroke-width="2.5" stroke-dasharray="6,4" marker-end="url(#arrow-small)" />
+    <rect x="-430" y="75" width="140" height="30" rx="6" fill="#ffffff" stroke="#cbd5e0" stroke-width="1.5" />
+    <text x="-360" y="96" font-family="'Hiragino Kaku Gothic ProN', Meiryo, sans-serif" font-size="14" font-weight="bold" fill="#4a5568" text-anchor="middle">訓練等給付費</text>
+  </g>
+  
+  <g transform="translate(220, 340)">
+    <rect x="-140" y="-150" width="280" height="300" rx="20" fill="#f7fafc" stroke="#cbd5e0" stroke-width="3" class="box-shadow" />
+    <rect x="-140" y="-150" width="280" height="75" rx="20" fill="#feebc8" />
+    <rect x="-140" y="-95" width="280" height="15" fill="#feebc8" />
+    <text x="0" y="-102" class="party-name" font-size="28" fill="#7b341e">🏡 事業所（B型）</text>
+    <g transform="translate(0, 25)">
+  <g transform="scale(1.2)">
+    <!-- 三角屋根の温かい建物 -->
+    <polygon points="0,-36 -32,-10 32,-10" fill="#feebc8" stroke="#dd6b20" stroke-width="2.5" />
+    <rect x="-26" y="-10" width="52" height="46" rx="2" fill="#fffaf0" stroke="#dd6b20" stroke-width="2.5" />
+    <!-- ドア -->
+    <rect x="-10" y="8" width="20" height="28" rx="2" fill="#feebc8" stroke="#dd6b20" stroke-width="2" />
+    <!-- ハートマーク（支援） -->
+    <path d="M 0, -2 C -4,-8 -10,-4 -8,2 L 0,8 L 8,2 C 10,-4 4,-8 0,-2" fill="#e53e3e" />
+  </g>
+</g>
+    <text x="0" y="105" class="party-sub">就労・支援の場</text>
+  </g>
+  
+  <g transform="translate(80, 520)">
+    <rect x="0" y="0" width="280" height="115" rx="14" fill="#fffaf0" stroke="#dd6b20" stroke-width="2.5" class="box-shadow" />
+    <text x="15" y="34" font-family="'Hiragino Kaku Gothic ProN', Meiryo, sans-serif" font-weight="bold" font-size="20" fill="#c05621">🛡️ 安全配慮・支援義務</text>
+    <text x="15" y="68" font-family="'Hiragino Kaku Gothic ProN', Meiryo, sans-serif" font-size="16" font-weight="bold" fill="#4a5568">利用者の心身の安全に配慮し、</text>
+    <text x="15" y="94" font-family="'Hiragino Kaku Gothic ProN', Meiryo, sans-serif" font-size="16" font-weight="bold" fill="#4a5568">支援する義務</text>
+  </g>
+  
+  <g transform="translate(1380, 390)">
+    <rect x="-140" y="-180" width="280" height="370" rx="20" fill="#f7fafc" stroke="#cbd5e0" stroke-width="3" class="box-shadow" />
+    <rect x="-140" y="-180" width="280" height="75" rx="20" fill="#feebc8" />
+    <rect x="-140" y="-120" width="280" height="15" fill="#feebc8" />
+    <text x="0" y="-130" class="party-name" fill="#7b341e">🧑‍🎨 利用者</text>
+    <g transform="translate(0, 35)">
+  <g transform="scale(1.2)">
+    <!-- 頭 -->
+    <circle cx="0" cy="-18" r="16" fill="#ebf8ff" stroke="#2b6cb0" stroke-width="2.5" />
+    <!-- 笑顔 -->
+    <path d="M -6 -14 Q 0 -8 6 -14" fill="none" stroke="#2b6cb0" stroke-width="2" stroke-linecap="round" />
+    <!-- 体 -->
+    <path d="M -28 32 C -28 10, 28 10, 28 32" fill="#ebf8ff" stroke="#2b6cb0" stroke-width="2.5" />
+    <!-- ノートパソコン -->
+    <rect x="-16" y="16" width="32" height="16" rx="2" fill="#ffffff" stroke="#2b6cb0" stroke-width="2" />
+    <line x1="-20" y1="32" x2="20" y2="32" stroke="#2b6cb0" stroke-width="2.5" stroke-linecap="round" />
+  </g>
+</g>
+    <text x="0" y="130" class="party-sub">訓練・制作を行う側</text>
+    <rect x="-100" y="150" width="200" height="28" rx="14" fill="#ffffff" stroke="#cbd5e0" />
+    <text x="0" y="169" font-family="'Hiragino Kaku Gothic ProN', Meiryo, sans-serif" font-size="14" font-weight="bold" fill="#718096" text-anchor="middle">安心してスキルを磨く立場</text>
+  </g>
+  
+  <g transform="translate(380, 155)">
+    <line x1="0" y1="30" x2="840" y2="30" stroke="#718096" stroke-width="3" stroke-dasharray="8,6" marker-end="url(#arrow-dashed)" />
+    <rect x="180" y="0" width="480" height="52" rx="12" fill="#f7fafc" stroke="#cbd5e0" stroke-width="2" />
+    <text x="390" y="33" font-family="'Hiragino Kaku Gothic ProN', Meiryo, sans-serif" font-weight="bold" font-size="19" fill="#2d3748" text-anchor="middle">🤝 支援・助言（指揮命令ではない）</text>
+    <text x="585" y="33" font-family="'Hiragino Kaku Gothic ProN', Meiryo, sans-serif" font-size="15" font-weight="bold" fill="#e53e3e">≠ 指揮命令</text>
+  </g>
+  
+  <g transform="translate(410, 255)">
+    <line x1="10" y1="75" x2="770" y2="75" stroke="#1a73e8" stroke-width="8" marker-end="url(#arrow-right-blue)" />
+    
+    <!-- 左側：事業所の債務 -->
+    <rect x="0" y="-35" width="355" height="98" rx="12" fill="#fff5f5" stroke="#feb2b2" stroke-width="2.5" class="box-shadow" />
+    <text x="15" y="-10" class="label-debt" font-size="18">🔴 事業所の債務（しなければならないこと）</text>
+    <text x="15" y="16" class="arrow-text" font-size="16">就労の機会と支援・訓練を提供し、</text>
+    <text x="15" y="42" class="arrow-text" font-size="16">生産活動の成果から工賃を支払う義務 💰</text>
+
+    <!-- 中央：イコール -->
+    <circle cx="390" cy="13" r="28" fill="#edf2f7" stroke="#cbd5e0" stroke-width="2.5" />
+    <text x="390" y="24" class="equal-sign">＝</text>
+
+    <!-- 右側：利用者の債権 -->
+    <rect x="425" y="-35" width="355" height="98" rx="12" fill="#ebf8ff" stroke="#bee3f8" stroke-width="2.5" class="box-shadow" />
+    <text x="440" y="-10" class="label-claim" font-size="18">🔵 利用者の債権（求めてよい権利）</text>
+    <text x="440" y="16" class="arrow-text" font-size="16">支援の提供と</text>
+    <text x="440" y="42" class="arrow-text" font-size="16">工賃の支払いを求める権利 ✨</text>
+  </g>
+  
+  <g transform="translate(410, 450)">
+    <line x1="770" y1="80" x2="10" y2="80" stroke="#1a73e8" stroke-width="8" marker-end="url(#arrow-left-blue)" />
+    
+    <!-- 左側：事業所の債権 -->
+    <rect x="0" y="-35" width="355" height="102" rx="12" fill="#ebf8ff" stroke="#bee3f8" stroke-width="2.5" class="box-shadow" />
+    <text x="15" y="-10" class="label-claim" font-size="18">🔵 事業所の債権（求めてよい権利）</text>
+    <text x="15" y="18" class="arrow-text" font-size="16">計画に沿った利用と、</text>
+    <text x="15" y="44" class="arrow-text" font-size="16">きまりの遵守を求める権利 🤝</text>
+
+    <!-- 中央：イコール -->
+    <circle cx="390" cy="15" r="28" fill="#edf2f7" stroke="#cbd5e0" stroke-width="2.5" />
+    <text x="390" y="26" class="equal-sign">＝</text>
+
+    <!-- 右側：利用者の債務 -->
+    <rect x="425" y="-35" width="355" height="102" rx="12" fill="#fff5f5" stroke="#feb2b2" stroke-width="2.5" class="box-shadow" />
+    <text x="440" y="-10" class="label-debt" font-size="18">🔴 利用者の債務（しなければならないこと）</text>
+    <text x="440" y="16" class="arrow-text" font-size="15">個別支援計画に沿って生産活動に取り組み、</text>
+    <text x="440" y="38" class="arrow-text" font-size="15">事業所のきまりを守る義務</text>
+    <text x="440" y="60" font-family="'Hiragino Kaku Gothic ProN', Meiryo, sans-serif" font-size="13" font-weight="bold" fill="#c53030">（利用者負担金がある場合はその支払い）</text>
+  </g>
+  
+  <g transform="translate(390, 625)">
+    <rect x="0" y="0" width="820" height="64" rx="32" fill="#f7fafc" stroke="#4a5568" stroke-width="2" stroke-dasharray="6,4" />
+    <path d="M 410 -14 L 420 0 L 400 0 Z" fill="#4a5568" />
+    <text x="410" y="39" class="bubble-text" font-weight="bold" text-anchor="middle">💡 受け取るのは「賃金」ではなく「工賃」。労働基準法・最低賃金法は原則適用されないが、安全への配慮はこの契約でも事業所の義務</text>
+  </g>
+  
+  <g transform="translate(80, 775)">
+    <text x="0" y="32" font-family="'Hiragino Kaku Gothic ProN', Meiryo, sans-serif" font-weight="bold" font-size="22" fill="#4a5568">契約の性質：</text>
+    <rect x="130" y="0" width="130" height="48" rx="24" fill="#ebf8ff" stroke="#1a73e8" stroke-width="2.5" />
+    <text x="195" y="31" class="tag-text">双務</text>
+    <rect x="280" y="0" width="130" height="48" rx="24" fill="#ebf8ff" stroke="#1a73e8" stroke-width="2.5" />
+    <text x="345" y="31" class="tag-text">有償</text>
+    
+    <rect x="430" y="0" width="460" height="48" rx="24" fill="#feebc8" stroke="#dd6b20" stroke-width="3" />
+    <text x="660" y="31" class="tag-text-highlight" font-size="19">要式（契約書・重要事項説明書の交付が必要）</text>
+  </g>
+  
+  <g transform="translate(1520, 805)">
+    <text x="0" y="0" class="goal-text">🎯 契約のゴール：お互いが債務を履行し終えること（完遂）</text>
+  </g>
+  </svg>
+  

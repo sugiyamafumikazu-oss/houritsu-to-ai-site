@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <style>
+      .main-title { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-weight: bold; font-size: 28px; fill: #1a202c; }
+      .col-title { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-weight: bold; font-size: 24px; }
+      .text-bold { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-weight: bold; }
+      .text-normal { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; }
+    </style>
+  </defs>
+  <rect width="1600" height="900" fill="#ffffff" />
+  <rect x="20" y="20" width="1560" height="860" fill="none" stroke="#e2e8f0" stroke-width="2" rx="16" />
+
+  <!-- タイトルバー -->
+  <rect x="40" y="35" width="8" height="38" fill="#1a73e8" rx="3" />
+  <text x="60" y="64" class="main-title">【図2-4 比較】労働契約（一般就労・A型）と B型利用契約の対比</text>
+
+  <!-- 左側カラム：図2 労働契約 -->
+  <g transform="translate(40, 95)">
+    <rect x="0" y="0" width="730" height="690" rx="16" fill="#f7fafc" stroke="#bee3f8" stroke-width="2.5" />
+    <rect x="0" y="0" width="730" height="52" rx="16" fill="#ebf8ff" />
+    <rect x="0" y="35" width="730" height="17" fill="#ebf8ff" />
+    <text x="365" y="35" class="col-title" fill="#1a56db" text-anchor="middle">図2：労働契約（会社 × 労働者）</text>
+
+    <!-- 当事者 -->
+    <g transform="translate(30, 75)">
+      <rect x="0" y="0" width="200" height="70" rx="10" fill="#ffffff" stroke="#cbd5e0" stroke-width="2" />
+      <text x="100" y="42" class="text-bold" font-size="20" fill="#1a202c" text-anchor="middle">🏢 事業主（会社）</text>
+
+      <rect x="470" y="0" width="200" height="70" rx="10" fill="#ffffff" stroke="#cbd5e0" stroke-width="2" />
+      <text x="570" y="42" class="text-bold" font-size="20" fill="#1a202c" text-anchor="middle">👩‍💻 労働者</text>
+
+      <text x="335" y="44" class="text-bold" font-size="24" fill="#718096" text-anchor="middle">⇄</text>
+    </g>
+
+    <!-- 権限 -->
+    <g transform="translate(30, 165)">
+      <rect x="0" y="0" width="670" height="50" rx="10" fill="#edf2f7" />
+      <text x="20" y="32" class="text-bold" font-size="18" fill="#2d3748">👉 指揮命令権：あり（業務のやり方・ツールを具体的に指示）</text>
+    </g>
+
+    <!-- 矢印1 -->
+    <g transform="translate(30, 230)">
+      <rect x="0" y="0" width="670" height="70" rx="10" fill="#fff5f5" stroke="#feb2b2" stroke-width="1.5" />
+      <text x="20" y="30" class="text-bold" font-size="17" fill="#c53030">【事業主の債務】賃金を支払う義務 💴</text>
+      <text x="20" y="55" class="text-bold" font-size="17" fill="#1a73e8">＝【労働者の債権】賃金支払請求権（労基法・最低賃金法が適用）</text>
+    </g>
+
+    <!-- 矢印2 -->
+    <g transform="translate(30, 315)">
+      <rect x="0" y="0" width="670" height="70" rx="10" fill="#ebf8ff" stroke="#bee3f8" stroke-width="1.5" />
+      <text x="20" y="30" class="text-bold" font-size="17" fill="#c53030">【労働者の債務】労務を提供する義務（職務専念・職場秩序遵守）</text>
+      <text x="20" y="55" class="text-bold" font-size="17" fill="#1a73e8">＝【事業主の債権】労務の提供を求める権利 🤝</text>
+    </g>
+
+    <!-- 安全配慮義務 -->
+    <g transform="translate(30, 400)">
+      <rect x="0" y="0" width="670" height="55" rx="10" fill="#fff5f5" stroke="#e53e3e" stroke-width="2" />
+      <text x="20" y="35" class="text-bold" font-size="18" fill="#c53030">🛡️ 安全配慮義務（労契法5条）：心身の安全に配慮して働かせる義務</text>
+    </g>
+
+    <!-- 契約性質 -->
+    <g transform="translate(30, 475)">
+      <text x="10" y="30" class="text-bold" font-size="18" fill="#4a5568">性質：</text>
+      <rect x="70" y="5" width="90" height="36" rx="18" fill="#ebf8ff" stroke="#1a73e8" />
+      <text x="115" y="30" class="text-bold" font-size="16" fill="#1a73e8" text-anchor="middle">双務</text>
+      <rect x="175" y="5" width="90" height="36" rx="18" fill="#ebf8ff" stroke="#1a73e8" />
+      <text x="220" y="30" class="text-bold" font-size="16" fill="#1a73e8" text-anchor="middle">有償</text>
+      <rect x="280" y="5" width="90" height="36" rx="18" fill="#ebf8ff" stroke="#1a73e8" />
+      <text x="325" y="30" class="text-bold" font-size="16" fill="#1a73e8" text-anchor="middle">諾成</text>
+    </g>
+
+    <!-- ポイントまとめ -->
+    <g transform="translate(30, 535)">
+      <rect x="0" y="0" width="670" height="130" rx="10" fill="#ffffff" stroke="#cbd5e0" stroke-width="1.5" />
+      <text x="20" y="32" class="text-bold" font-size="18" fill="#1a73e8">💡 ここがポイント（一般就労の姿）</text>
+      <text x="20" y="65" class="text-normal" font-size="16" fill="#2d3748">• 「労働者」として法律で強く守られ、賃金請求権を持つ</text>
+      <text x="20" y="95" class="text-normal" font-size="16" fill="#2d3748">• 一方で、会社の指示に従い、仕事に集中する義務を負う</text>
+      <text x="20" y="120" class="text-normal" font-size="15" fill="#718096">• AIツールの利用も会社の指揮命令に従って行う</text>
+    </g>
+  </g>
+
+  <!-- 右側カラム：図4 B型利用契約 -->
+  <g transform="translate(830, 95)">
+    <rect x="0" y="0" width="730" height="690" rx="16" fill="#f7fafc" stroke="#feebc8" stroke-width="2.5" />
+    <rect x="0" y="0" width="730" height="52" rx="16" fill="#fffaf0" />
+    <rect x="0" y="35" width="730" height="17" fill="#fffaf0" />
+    <text x="365" y="35" class="col-title" fill="#c05621" text-anchor="middle">図4：利用契約（事業所 × 利用者）</text>
+
+    <!-- 当事者 -->
+    <g transform="translate(30, 75)">
+      <rect x="0" y="0" width="200" height="70" rx="10" fill="#ffffff" stroke="#cbd5e0" stroke-width="2" />
+      <text x="100" y="42" class="text-bold" font-size="20" fill="#1a202c" text-anchor="middle">🏡 事業所（B型）</text>
+
+      <rect x="470" y="0" width="200" height="70" rx="10" fill="#ffffff" stroke="#cbd5e0" stroke-width="2" />
+      <text x="570" y="42" class="text-bold" font-size="20" fill="#1a202c" text-anchor="middle">🧑‍🎨 利用者</text>
+
+      <text x="335" y="44" class="text-bold" font-size="24" fill="#718096" text-anchor="middle">⇄</text>
+    </g>
+
+    <!-- 権限 -->
+    <g transform="translate(30, 165)">
+      <rect x="0" y="0" width="670" height="50" rx="10" fill="#edf2f7" />
+      <text x="20" y="32" class="text-bold" font-size="18" fill="#2d3748">🤝 支援・助言：指揮命令ではない（<tspan fill="#e53e3e">≠ 指揮命令</tspan>）</text>
+    </g>
+
+    <!-- 矢印1 -->
+    <g transform="translate(30, 230)">
+      <rect x="0" y="0" width="670" height="70" rx="10" fill="#fff5f5" stroke="#feb2b2" stroke-width="1.5" />
+      <text x="20" y="30" class="text-bold" font-size="17" fill="#c53030">【事業所の債務】就労機会・支援を提供し、成果から工賃を支払う義務 💰</text>
+      <text x="20" y="55" class="text-bold" font-size="17" fill="#1a73e8">＝【利用者の債権】支援と工賃の支払いを求める権利（賃金ではない）</text>
+    </g>
+
+    <!-- 矢印2 -->
+    <g transform="translate(30, 315)">
+      <rect x="0" y="0" width="670" height="70" rx="10" fill="#ebf8ff" stroke="#bee3f8" stroke-width="1.5" />
+      <text x="20" y="30" class="text-bold" font-size="17" fill="#c53030">【利用者の債務】個別支援計画に沿って生産活動に取り組み規約を守る義務</text>
+      <text x="20" y="55" class="text-bold" font-size="17" fill="#1a73e8">＝【事業所の債権】計画に沿った利用ときまりの遵守を求める権利 🤝</text>
+    </g>
+
+    <!-- 安全配慮・支援義務 -->
+    <g transform="translate(30, 400)">
+      <rect x="0" y="0" width="670" height="55" rx="10" fill="#fffaf0" stroke="#dd6b20" stroke-width="2" />
+      <text x="20" y="35" class="text-bold" font-size="18" fill="#c05621">🛡️ 安全配慮・支援義務：利用者の心身の安全に配慮し支援する義務</text>
+    </g>
+
+    <!-- 契約性質 -->
+    <g transform="translate(30, 475)">
+      <text x="10" y="30" class="text-bold" font-size="18" fill="#4a5568">性質：</text>
+      <rect x="70" y="5" width="90" height="36" rx="18" fill="#ebf8ff" stroke="#1a73e8" />
+      <text x="115" y="30" class="text-bold" font-size="16" fill="#1a73e8" text-anchor="middle">双務</text>
+      <rect x="175" y="5" width="90" height="36" rx="18" fill="#ebf8ff" stroke="#1a73e8" />
+      <text x="220" y="30" class="text-bold" font-size="16" fill="#1a73e8" text-anchor="middle">有償</text>
+      <rect x="280" y="5" width="370" height="36" rx="18" fill="#feebc8" stroke="#dd6b20" stroke-width="2" />
+      <text x="465" y="30" class="text-bold" font-size="15" fill="#c05621" text-anchor="middle">要式（書面・重要事項説明書が必要）</text>
+    </g>
+
+    <!-- ポイントまとめ -->
+    <g transform="translate(30, 535)">
+      <rect x="0" y="0" width="670" height="130" rx="10" fill="#ffffff" stroke="#cbd5e0" stroke-width="1.5" />
+      <text x="20" y="32" class="text-bold" font-size="18" fill="#c05621">💡 ここがポイント（現在の皆さんの安心）</text>
+      <text x="20" y="65" class="text-normal" font-size="16" fill="#2d3748">• 雇用契約ではないため厳格な労働義務や責任は負わない</text>
+      <text x="20" y="95" class="text-normal" font-size="16" fill="#2d3748">• 事業所が安全と体調に配慮し、成長をサポートする契約</text>
+      <text x="20" y="120" class="text-normal" font-size="15" fill="#718096">• ここでAIスキルを培い、自信をつけて一般就労へステップアップ！</text>
+    </g>
+  </g>
+
+  <!-- 最下部：架け橋メッセージ -->
+  <g transform="translate(40, 805)">
+    <rect x="0" y="0" width="1520" height="60" rx="12" fill="#ebf8ff" stroke="#1a73e8" stroke-width="2.5" />
+    <text x="760" y="38" class="text-bold" font-size="22" fill="#1a73e8" text-anchor="middle">🚀 共通点：どちらも「安全への配慮」が義務。将来A型や一般就労に進んだとき、図2の権利・義務がそのまま自分のものになります！</text>
+  </g>
+</svg>

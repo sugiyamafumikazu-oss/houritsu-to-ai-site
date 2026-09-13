@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <style>
+      .title { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-weight: bold; fill: #1a202c; }
+      .party-name { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-weight: bold; font-size: 34px; fill: #1a202c; text-anchor: middle; }
+      .party-sub { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-weight: 500; font-size: 20px; fill: #4a5568; text-anchor: middle; }
+      .label-debt { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-weight: bold; font-size: 20px; fill: #c53030; }
+      .label-claim { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-weight: bold; font-size: 20px; fill: #1a73e8; }
+      .arrow-text { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-weight: bold; font-size: 21px; fill: #2d3748; }
+      .equal-sign { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-weight: 900; font-size: 30px; fill: #718096; text-anchor: middle; }
+      .tag-text { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-weight: bold; font-size: 20px; fill: #1a73e8; text-anchor: middle; }
+      .tag-text-highlight { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-weight: bold; font-size: 20px; fill: #c05621; text-anchor: middle; }
+      .bubble-text { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-size: 19px; fill: #2d3748; }
+      .goal-text { font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif; font-weight: bold; font-size: 23px; fill: #1a73e8; text-anchor: end; }
+      .box-shadow { filter: drop-shadow(0 6px 12px rgba(0,0,0,0.06)); }
+    </style>
+    <!-- 矢印マーカー -->
+    <marker id="arrow-right-blue" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#1a73e8" />
+    </marker>
+    <marker id="arrow-left-blue" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#1a73e8" />
+    </marker>
+    <marker id="arrow-right-red" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#e53e3e" />
+    </marker>
+    <marker id="arrow-left-red" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#e53e3e" />
+    </marker>
+    <marker id="arrow-dashed" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#718096" />
+    </marker>
+    <marker id="arrow-small" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M 0 1 L 7 4 L 0 7 z" fill="#4a5568" />
+    </marker>
+  </defs>
+  <rect width="1600" height="900" fill="#ffffff" />
+  <rect x="20" y="20" width="1560" height="860" fill="none" stroke="#e2e8f0" stroke-width="2" rx="16" />
+  <!-- タイトルバー -->
+  <rect x="40" y="35" width="8" height="38" fill="#1a73e8" rx="3" />
+  <text x="60" y="64" class="title" font-size="28">【図3】委託契約（請負）の構造</text>
+
+  <g transform="translate(200, 320)">
+    <rect x="-130" y="-150" width="260" height="300" rx="20" fill="#f7fafc" stroke="#cbd5e0" stroke-width="3" class="box-shadow" />
+    <rect x="-130" y="-150" width="260" height="75" rx="20" fill="#edf2f7" />
+    <rect x="-130" y="-95" width="260" height="15" fill="#edf2f7" />
+    <text x="0" y="-102" class="party-name" font-size="28">🏢 発注者</text>
+    <text x="0" y="-68" font-family="'Hiragino Kaku Gothic ProN', Meiryo, sans-serif" font-size="18" fill="#4a5568" text-anchor="middle">（依頼する側）</text>
+    <g transform="translate(0, 30)">
+  <g transform="scale(1.2)">
+    <rect x="-26" y="-36" width="52" height="72" rx="4" fill="#ebf8ff" stroke="#2b6cb0" stroke-width="2.5" />
+    <!-- 窓 -->
+    <line x1="-16" y1="-22" x2="-8" y2="-22" stroke="#2b6cb0" stroke-width="2" />
+    <line x1="8" y1="-22" x2="16" y2="-22" stroke="#2b6cb0" stroke-width="2" />
+    <line x1="-16" y1="-8" x2="-8" y2="-8" stroke="#2b6cb0" stroke-width="2" />
+    <line x1="8" y1="-8" x2="16" y2="-8" stroke="#2b6cb0" stroke-width="2" />
+    <line x1="-16" y1="6" x2="-8" y2="6" stroke="#2b6cb0" stroke-width="2" />
+    <line x1="8" y1="6" x2="16" y2="6" stroke="#2b6cb0" stroke-width="2" />
+    <!-- エントランス -->
+    <rect x="-10" y="18" width="20" height="18" fill="#bee3f8" stroke="#2b6cb0" stroke-width="2" />
+  </g>
+</g>
+    <text x="0" y="105" class="party-sub">企業・クライアント</text>
+  </g>
+  
+  <g transform="translate(1400, 320)">
+    <rect x="-130" y="-150" width="260" height="300" rx="20" fill="#f7fafc" stroke="#cbd5e0" stroke-width="3" class="box-shadow" />
+    <rect x="-130" y="-150" width="260" height="75" rx="20" fill="#feebc8" />
+    <rect x="-130" y="-95" width="260" height="15" fill="#feebc8" />
+    <text x="0" y="-102" class="party-name" font-size="26" fill="#7b341e">🎨 受注者</text>
+    <text x="0" y="-68" font-family="'Hiragino Kaku Gothic ProN', Meiryo, sans-serif" font-size="18" fill="#4a5568" text-anchor="middle">（B型事業所）</text>
+    <g transform="translate(0, 30)">
+  <g transform="scale(1.2)">
+    <!-- 頭 -->
+    <circle cx="0" cy="-18" r="16" fill="#ebf8ff" stroke="#2b6cb0" stroke-width="2.5" />
+    <!-- 笑顔 -->
+    <path d="M -6 -14 Q 0 -8 6 -14" fill="none" stroke="#2b6cb0" stroke-width="2" stroke-linecap="round" />
+    <!-- 体 -->
+    <path d="M -28 32 C -28 10, 28 10, 28 32" fill="#ebf8ff" stroke="#2b6cb0" stroke-width="2.5" />
+    <!-- ノートパソコン -->
+    <rect x="-16" y="16" width="32" height="16" rx="2" fill="#ffffff" stroke="#2b6cb0" stroke-width="2" />
+    <line x1="-20" y1="32" x2="20" y2="32" stroke="#2b6cb0" stroke-width="2.5" stroke-linecap="round" />
+  </g>
+</g>
+    <text x="0" y="105" class="party-sub">制作・履行する側</text>
+  </g>
+  
+  <g transform="translate(800, 130)">
+    <rect x="-250" y="-26" width="500" height="52" rx="14" fill="#fff5f5" stroke="#feb2b2" stroke-width="2.5" class="box-shadow" />
+    <text x="0" y="9" font-family="'Hiragino Kaku Gothic ProN', Meiryo, sans-serif" font-weight="bold" font-size="22" fill="#c53030" text-anchor="middle">❌ 指揮命令権なし（やり方は受注者に任せる）</text>
+  </g>
+  
+  <g transform="translate(360, 200)">
+    <line x1="860" y1="55" x2="20" y2="55" stroke="#1a73e8" stroke-width="8" marker-end="url(#arrow-left-blue)" />
+    
+    <!-- 左側：発注者の債権 -->
+    <rect x="10" y="-35" width="395" height="78" rx="12" fill="#ebf8ff" stroke="#bee3f8" stroke-width="2.5" class="box-shadow" />
+    <text x="25" y="-10" class="label-claim">🔵 発注者の債権（求めてよい権利）</text>
+    <text x="25" y="25" class="arrow-text">成果物の納品を求める権利 🎬</text>
+
+    <!-- 中央：イコール -->
+    <circle cx="440" cy="4" r="26" fill="#edf2f7" stroke="#cbd5e0" stroke-width="2.5" />
+    <text x="440" y="14" class="equal-sign">＝</text>
+
+    <!-- 右側：受注者の債務 -->
+    <rect x="475" y="-35" width="395" height="78" rx="12" fill="#fff5f5" stroke="#feb2b2" stroke-width="2.5" class="box-shadow" />
+    <text x="490" y="-10" class="label-debt">🔴 受注者の債務（しなければならないこと）</text>
+    <text x="490" y="25" class="arrow-text" font-size="18">成果物（画像・動画）を完成させて納品する義務</text>
+  </g>
+  
+  <g transform="translate(360, 285)">
+    <rect x="10" y="0" width="860" height="155" rx="12" fill="#f8fafc" stroke="#cbd5e0" stroke-width="2" class="box-shadow" />
+    <text x="30" y="28" font-family="'Hiragino Kaku Gothic ProN', Meiryo, sans-serif" font-weight="bold" font-size="18" fill="#1a73e8">📋 納品義務の中身は契約書で決まる。約束した内容どおりに納めて、はじめて「履行」</text>
+    <line x1="25" y1="38" x2="855" y2="38" stroke="#e2e8f0" stroke-width="1.5" />
+    
+    <text x="40" y="68" font-family="'Hiragino Kaku Gothic ProN', Meiryo, sans-serif" font-weight="bold" font-size="16" fill="#2d3748">☑ 仕様（サイズ・尺・枚数・用途）</text>
+    <text x="40" y="98" font-family="'Hiragino Kaku Gothic ProN', Meiryo, sans-serif" font-weight="bold" font-size="16" fill="#2d3748">☑ 納期</text>
+    <text x="40" y="128" font-family="'Hiragino Kaku Gothic ProN', Meiryo, sans-serif" font-weight="bold" font-size="16" fill="#2d3748">☑ 修正は何回まで無料か</text>
+
+    <text x="440" y="68" font-family="'Hiragino Kaku Gothic ProN', Meiryo, sans-serif" font-weight="bold" font-size="16" fill="#2d3748">☑ 権利の帰属（生成物は誰のものか）</text>
+    <text x="440" y="98" font-family="'Hiragino Kaku Gothic ProN', Meiryo, sans-serif" font-weight="bold" font-size="16" fill="#2d3748">☑ AIを使って制作することの開示</text>
+    <text x="440" y="128" font-family="'Hiragino Kaku Gothic ProN', Meiryo, sans-serif" font-weight="bold" font-size="16" fill="#2d3748">☑ 第三者の権利を侵害しないことの保証</text>
+  </g>
+  
+  <g transform="translate(360, 460)">
+    <line x1="20" y1="55" x2="860" y2="55" stroke="#1a73e8" stroke-width="8" marker-end="url(#arrow-right-blue)" />
+    
+    <!-- 左側：発注者の債務 -->
+    <rect x="10" y="-35" width="395" height="78" rx="12" fill="#fff5f5" stroke="#feb2b2" stroke-width="2.5" class="box-shadow" />
+    <text x="25" y="-10" class="label-debt">🔴 発注者の債務（しなければならないこと）</text>
+    <text x="25" y="25" class="arrow-text">報酬を支払う義務 💰</text>
+
+    <!-- 中央：イコール -->
+    <circle cx="440" cy="4" r="26" fill="#edf2f7" stroke="#cbd5e0" stroke-width="2.5" />
+    <text x="440" y="14" class="equal-sign">＝</text>
+
+    <!-- 右側：受注者の債権 -->
+    <rect x="475" y="-35" width="395" height="78" rx="12" fill="#ebf8ff" stroke="#bee3f8" stroke-width="2.5" class="box-shadow" />
+    <text x="490" y="-10" class="label-claim">🔵 受注者の債権（求めてよい権利）</text>
+    <text x="490" y="25" class="arrow-text">報酬の支払いを求める権利 ✨</text>
+  </g>
+  
+  <g transform="translate(370, 545)">
+    <rect x="0" y="0" width="860" height="82" rx="12" fill="#fff5f5" stroke="#e53e3e" stroke-width="2.5" class="box-shadow" />
+    <text x="20" y="28" font-family="'Hiragino Kaku Gothic ProN', Meiryo, sans-serif" font-weight="bold" font-size="18" fill="#c53030">⚠️ 達成できなかったら？</text>
+    <text x="20" y="53" font-family="'Hiragino Kaku Gothic ProN', Meiryo, sans-serif" font-size="16" fill="#2d3748">「納期に遅れた／仕様と違う／修正回数を超えた」→<tspan font-weight="bold" fill="#c53030">「債務不履行」</tspan>→ 損害賠償を請求されることがある（民法415条）／契約を解除されることがある</text>
+    <text x="20" y="73" font-family="'Hiragino Kaku Gothic ProN', Meiryo, sans-serif" font-size="15" font-weight="bold" fill="#742a2a">「AIで作ったから」は理由にならない。約束は人が守る</text>
+  </g>
+  
+  <g transform="translate(370, 638)">
+    <rect x="0" y="0" width="860" height="46" rx="23" fill="#f7fafc" stroke="#4a5568" stroke-width="1.5" stroke-dasharray="6,4" />
+    <text x="430" y="29" class="bubble-text" font-size="17" font-weight="bold" text-anchor="middle">💡 AIで作っても、納品する責任を負うのは受注者。仕様・納期・修正回数を守り、権利侵害がないか納品前に確認</text>
+  </g>
+  
+  <g transform="translate(80, 715)">
+    <rect x="0" y="0" width="1440" height="52" rx="12" fill="#edf2f7" stroke="#cbd5e0" stroke-width="2" />
+    <text x="25" y="33" font-family="'Hiragino Kaku Gothic ProN', Meiryo, sans-serif" font-weight="bold" font-size="18" fill="#4a5568">履行の流れ：</text>
+    <g transform="translate(140, 0)">
+      <text x="40" y="33" font-family="'Hiragino Kaku Gothic ProN', Meiryo, sans-serif" font-weight="bold" font-size="18" fill="#2d3748">① 契約書の確認</text>
+      <text x="210" y="33" font-size="20" fill="#a0aec0">→</text>
+      <text x="250" y="33" font-family="'Hiragino Kaku Gothic ProN', Meiryo, sans-serif" font-weight="bold" font-size="18" fill="#2d3748">② 制作</text>
+      <text x="330" y="33" font-size="20" fill="#a0aec0">→</text>
+      <text x="370" y="33" font-family="'Hiragino Kaku Gothic ProN', Meiryo, sans-serif" font-weight="bold" font-size="18" fill="#2d3748">③ 納品</text>
+      <text x="450" y="33" font-size="20" fill="#a0aec0">→</text>
+      <text x="490" y="33" font-family="'Hiragino Kaku Gothic ProN', Meiryo, sans-serif" font-weight="bold" font-size="18" fill="#2d3748">④ 検収</text>
+      <text x="570" y="33" font-size="20" fill="#a0aec0">→</text>
+      <text x="610" y="33" font-family="'Hiragino Kaku Gothic ProN', Meiryo, sans-serif" font-weight="bold" font-size="18" fill="#2d3748">⑤ 報酬支払い</text>
+      <text x="755" y="33" font-size="20" fill="#a0aec0">→</text>
+      <text x="795" y="33" font-family="'Hiragino Kaku Gothic ProN', Meiryo, sans-serif" font-weight="bold" font-size="19" fill="#1a73e8">🏁 完遂（ゴール！）</text>
+    </g>
+  </g>
+  
+  <g transform="translate(80, 800)">
+    <text x="0" y="32" font-family="'Hiragino Kaku Gothic ProN', Meiryo, sans-serif" font-weight="bold" font-size="22" fill="#4a5568">契約の性質：</text>
+    <rect x="130" y="0" width="130" height="48" rx="24" fill="#ebf8ff" stroke="#1a73e8" stroke-width="2.5" />
+    <text x="195" y="31" class="tag-text">双務</text>
+    <rect x="280" y="0" width="130" height="48" rx="24" fill="#ebf8ff" stroke="#1a73e8" stroke-width="2.5" />
+    <text x="345" y="31" class="tag-text">有償</text>
+    <rect x="430" y="0" width="130" height="48" rx="24" fill="#ebf8ff" stroke="#1a73e8" stroke-width="2.5" />
+    <text x="495" y="31" class="tag-text">諾成</text>
+  </g>
+  <g transform="translate(1520, 830)">
+    <text x="0" y="0" class="goal-text">🎯 契約のゴール：お互いが債務を履行し終えること（完遂）</text>
+  </g>
+  </svg>
+  

@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>成果物一覧プレビュー ― 法律とAI（B型事業所向け講演）</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f4f8;
+      color: #1a202c;
+    }
+    header {
+      background: #ffffff;
+      border-bottom: 2px solid #e2e8f0;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+    }
+    header h1 {
+      margin: 0 0 6px 0;
+      font-size: 24px;
+      color: #1a202c;
+    }
+    header p {
+      margin: 0;
+      font-size: 14px;
+      color: #718096;
+    }
+    .badge-pill {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+      background: #ebf8ff;
+      color: #1a73e8;
+      border: 1px solid #bee3f8;
+    }
+    .container {
+      max-width: 1400px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    /* タブ切り替え */
+    .tabs {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 25px;
+      border-bottom: 2px solid #cbd5e0;
+      padding-bottom: 8px;
+    }
+    .tab-btn {
+      padding: 10px 24px;
+      border: none;
+      background: #ffffff;
+      border-radius: 8px 8px 0 0;
+      font-size: 16px;
+      font-weight: bold;
+      color: #4a5568;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .tab-btn.active {
+      background: #1a73e8;
+      color: #ffffff;
+    }
+
+    .tab-pane {
+      display: none;
+    }
+    .tab-pane.active {
+      display: block;
+    }
+
+    /* SVGグリッド */
+    .svg-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+      gap: 25px;
+    }
+    .svg-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+    }
+    .svg-card-header {
+      padding: 15px 20px;
+      background: #f7fafc;
+      border-bottom: 1px solid #e2e8f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .svg-card-header h3 {
+      margin: 0;
+      font-size: 18px;
+      color: #2d3748;
+    }
+    .svg-card-body {
+      padding: 15px;
+      background: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .svg-card-body img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #edf2f7;
+      border-radius: 8px;
+    }
+    .svg-card-footer {
+      padding: 12px 20px;
+      font-size: 14px;
+      color: #4a5568;
+      border-top: 1px solid #f0f4f8;
+      background: #ffffff;
+    }
+
+    /* スライドグリッド */
+    .slides-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+      gap: 20px;
+    }
+    .slide-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+    }
+    .slide-header {
+      padding: 12px 16px;
+      background: #f8fafc;
+      border-bottom: 1px solid #e2e8f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .slide-num {
+      font-weight: 900;
+      font-size: 14px;
+      color: #1a73e8;
+    }
+    .slide-part {
+      font-size: 12px;
+      color: #4a5568;
+      background: #edf2f7;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    .slide-body {
+      padding: 16px;
+      flex: 1;
+    }
+    .slide-title {
+      font-size: 17px;
+      font-weight: bold;
+      margin: 0 0 10px 0;
+      color: #1a202c;
+    }
+    .slide-content-text {
+      font-size: 14px;
+      color: #2d3748;
+      white-space: pre-wrap;
+      background: #f8fafc;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+    .slide-img-preview {
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+      margin-bottom: 12px;
+    }
+    .slide-notes {
+      border-top: 1px dashed #bee3f8;
+      padding-top: 10px;
+      font-size: 12.5px;
+      color: #1a56db;
+      line-height: 1.45;
+      background: #ebf8ff;
+      padding: 12px;
+      border-radius: 8px;
+    }
+    .slide-notes strong {
+      display: block;
+      color: #1a73e8;
+      margin-bottom: 4px;
+    }
+
+    /* ダウンロードボックス */
+    .download-panel {
+      background: #ffffff;
+      border: 1px solid #bee3f8;
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(26,115,232,0.08);
+    }
+    .download-btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background: #1a73e8;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+    .download-btn:hover {
+      background: #1557b0;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div>
+      <h1>就労継続支援B型事業所向け講演「法律とAI」成果物ビューア</h1>
+      <p>演題：『契約を知って、AIのスキルで一般就労へ』（持ち時間60分） ／ 講師：社会保険労務士・行政書士</p>
+    </div>
+    <div style="text-align: right;">
+      <span class="badge-pill">PPTXスライド 30枚完備</span>
+      <span class="badge-pill">図解SVG 6枚完備</span>
+      <span class="badge-pill">A4レジュメPDF 2枚完備</span>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- ダウンロードリンク集 -->
+    <div class="download-panel">
+      <div>
+        <h2 style="margin:0 0 6px 0; font-size:18px; color:#1a202c;">📁 生成されたファイル一覧</h2>
+        <p style="margin:0; font-size:14px; color:#4a5568;">
+          • スライド：<a href="houritsu_to_AI.pptx" style="color:#1a73e8; font-weight:bold;">houritsu_to_AI.pptx</a>（PowerPoint形式・全30枚・文字量削減＆アイコン多用・講演者ノート付）<br>
+          • レジュメ：<a href="houritsu_to_AI_resume.pdf" target="_blank" style="color:#1a73e8; font-weight:bold;">houritsu_to_AI_resume.pdf</a>（A4・厳密に2枚以内のPDF）<br>
+          • 図解SVG：個別SVG 6枚（fig1〜fig5）
+        </p>
+      </div>
+      <div>
+        <a href="houritsu_to_AI.pptx" class="download-btn">📥 スライド (PPTX) を開く</a>
+        <a href="houritsu_to_AI_resume.pdf" target="_blank" class="download-btn" style="background:#2b6cb0; margin-left:10px;">📄 レジュメ (PDF) を開く</a>
+      </div>
+    </div>
+
+    <!-- タブ切り替えボタン -->
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab('svgs')">📊 図解SVG 6枚プレビュー</button>
+      <button class="tab-btn" onclick="switchTab('slides')">📑 スライド全30枚・ノート一覧</button>
+      <button class="tab-btn" onclick="switchTab('resume')">📄 配付用レジュメPDFプレビュー</button>
+    </div>
+
+    <!-- パネル1: SVG 6枚 -->
+    <div id="tab-svgs" class="tab-pane active">
+      <div class="svg-grid">
+
+        <div class="svg-card">
+          <div class="svg-card-header">
+            <h3>図1：売買契約 (<code>fig1_baibai.svg</code>)</h3>
+            <a href="fig1_baibai.svg" target="_blank" style="font-size:13px; color:#1a73e8; font-weight:bold;">SVG直接表示 ↗</a>
+          </div>
+          <div class="svg-card-body">
+            <img src="fig1_baibai.png" alt="図1：売買契約">
+          </div>
+          <div class="svg-card-footer">
+            売主（お店）と買主（お客さん）、双務・有償・諾成タグ、引渡しと代金の表裏一体関係、完遂ゴール
+          </div>
+        </div>
+  
+        <div class="svg-card">
+          <div class="svg-card-header">
+            <h3>図2：労働契約 (<code>fig2_roudou.svg</code>)</h3>
+            <a href="fig2_roudou.svg" target="_blank" style="font-size:13px; color:#1a73e8; font-weight:bold;">SVG直接表示 ↗</a>
+          </div>
+          <div class="svg-card-body">
+            <img src="fig2_roudou.png" alt="図2：労働契約">
+          </div>
+          <div class="svg-card-footer">
+            事業主（会社）と労働者、点線の指揮命令権、安全配慮義務（労契法5条）、AI接点補足
+          </div>
+        </div>
+  
+        <div class="svg-card">
+          <div class="svg-card-header">
+            <h3>図3：委託契約（請負） (<code>fig3_itaku.svg</code>)</h3>
+            <a href="fig3_itaku.svg" target="_blank" style="font-size:13px; color:#1a73e8; font-weight:bold;">SVG直接表示 ↗</a>
+          </div>
+          <div class="svg-card-body">
+            <img src="fig3_itaku.png" alt="図3：委託契約（請負）">
+          </div>
+          <div class="svg-card-footer">
+            発注者と受注者、指揮命令権なし、契約書6項目チェック、債務不履行警告、履行フロー
+          </div>
+        </div>
+  
+        <div class="svg-card">
+          <div class="svg-card-header">
+            <h3>図4：B型事業所の利用契約 (<code>fig4_riyou.svg</code>)</h3>
+            <a href="fig4_riyou.svg" target="_blank" style="font-size:13px; color:#1a73e8; font-weight:bold;">SVG直接表示 ↗</a>
+          </div>
+          <div class="svg-card-body">
+            <img src="fig4_riyou.png" alt="図4：B型事業所の利用契約">
+          </div>
+          <div class="svg-card-footer">
+            図2完全同配置、支援・助言（≠指揮命令）、安全配慮・支援義務、要式タグ、市町村枠
+          </div>
+        </div>
+  
+        <div class="svg-card">
+          <div class="svg-card-header">
+            <h3>図2-4 比較 (<code>fig2_4_hikaku.svg</code>)</h3>
+            <a href="fig2_4_hikaku.svg" target="_blank" style="font-size:13px; color:#1a73e8; font-weight:bold;">SVG直接表示 ↗</a>
+          </div>
+          <div class="svg-card-body">
+            <img src="fig2_4_hikaku.png" alt="図2-4 比較">
+          </div>
+          <div class="svg-card-footer">
+            図2労働契約と図4利用契約の左右対比マップ
+          </div>
+        </div>
+  
+        <div class="svg-card">
+          <div class="svg-card-header">
+            <h3>図5：比較表 (<code>fig5_hikakuhyou.svg</code>)</h3>
+            <a href="fig5_hikakuhyou.svg" target="_blank" style="font-size:13px; color:#1a73e8; font-weight:bold;">SVG直接表示 ↗</a>
+          </div>
+          <div class="svg-card-body">
+            <img src="fig5_hikakuhyou.png" alt="図5：比較表">
+          </div>
+          <div class="svg-card-footer">
+            労働契約と利用契約の5項目比較表、将来への架け橋バナー
+          </div>
+        </div>
+  
+      </div>
+    </div>
+
+    <!-- パネル2: スライド全30枚 -->
+    <div id="tab-slides" class="tab-pane">
+      <div class="slides-grid">
+
+        <div class="slide-card">
+          <div class="slide-header">
+            <span class="slide-num">Slide 1 / 30</span>
+            <span class="slide-part">導入</span>
+          </div>
+          <div class="slide-body">
+            <div class="slide-title">法律とAI ― 契約を知って、AIのスキルで一般就労へ</div>
+            
+            <div class="slide-content-text">🤖 AI制作スキル　＋　📜 契約のルール　＝　🚀 一般就労への確かな道！
+
+・サブタイトル：知っていると自分と作品を守れる、未来へのステップ
+・講師：社会保険労務士・行政書士</div>
+            <div class="slide-notes">
+              <strong>🎙️ 講演者用ノート（話す要点・語りかけ）</strong>
+              皆さんこんにちは！「法律とAI ― 契約を知って、AIのスキルで一般就労へ」というテーマでお話しします。「法律」と聞くと難しそう、怒られそうと思うかもしれませんが、全く逆です。「自分と作品を守る安心の知恵」をお届けします。リラックスして聞いてくださいね！
+            </div>
+          </div>
+        </div>
+  
+        <div class="slide-card">
+          <div class="slide-header">
+            <span class="slide-num">Slide 2 / 30</span>
+            <span class="slide-part">導入</span>
+          </div>
+          <div class="slide-body">
+            <div class="slide-title">講師の立場 ― 2つの専門知識で皆さんを応援します！</div>
+            
+            <div class="slide-content-text">👔【社会保険労務士】＝「働く契約」の専門家
+🏢 会社と働く人のルール／🛡️ 安心して働ける環境を守る／🚀 一般就労の権利を支える
+
+📜【行政書士】＝「契約書・書類」の専門家
+🤝 ビジネスの約束を形にするプロ／⚠️ トラブル防止／🎨 作品を社会に届ける</div>
+            <div class="slide-notes">
+              <strong>🎙️ 講演者用ノート（話す要点・語りかけ）</strong>
+              社労士は「働くルールのプロ」、行政書士は「約束を形にする契約書のプロ」です。皆さんの現在の制作と、将来の一般就労の両面から全力で後押しします！
+            </div>
+          </div>
+        </div>
+  
+        <div class="slide-card">
+          <div class="slide-header">
+            <span class="slide-num">Slide 3 / 30</span>
+            <span class="slide-part">導入</span>
+          </div>
+          <div class="slide-body">
+            <div class="slide-title">【クイズ】皆さんは今日、いくつ「契約」を結びましたか？</div>
+            
+            <div class="slide-content-text">🏪 コンビニの買い物　📱 スマホアプリの利用　🤖 画像生成AIの起動
+
+👉 答え：全部が「契約」！皆さんは毎日すでに契約できています！
+★「知らなくても皆さんはちゃんと契約できている。今日はそれに名前をつけるだけ」</div>
+            <div class="slide-notes">
+              <strong>🎙️ 講演者用ノート（話す要点・語りかけ）</strong>
+              最初のクイズです！今日いくつ契約を結びましたか？お茶の買い物もアプリもAIも、全部立派な契約です。知らなくても皆さんは毎日大成功させています。自信に変えていきましょう！
+            </div>
+          </div>
+        </div>
+  
+        <div class="slide-card">
+          <div class="slide-header">
+            <span class="slide-num">Slide 4 / 30</span>
+            <span class="slide-part">第1部 契約の基本 ― 売買契約</span>
+          </div>
+          <div class="slide-body">
+            <div class="slide-title">契約ってなんだろう？ ―「約束」の基本ルール</div>
+            
+            <div class="slide-content-text">🛒 買主：「これください！」（申込み）
+　　↕ 🤝 合意！
+🏪 売主：「はい、どうぞ！」（承諾）
+
+💡 書面（契約書）がなくても口頭で成立する！ ＝「諾成契約（だくせい）」
+・レシートは契約書ではなく「確かにお金を支払いました」という後からの証拠。</div>
+            <div class="slide-notes">
+              <strong>🎙️ 講演者用ノート（話す要点・語りかけ）</strong>
+              契約とは要するに「お互いの合意（約束）」です。ハンコや契約書がなくても、言葉を交わしただけで成立するものを「諾成契約」と呼びます。レシートは契約書ではなく証拠です。
+            </div>
+          </div>
+        </div>
+  
+        <div class="slide-card">
+          <div class="slide-header">
+            <span class="slide-num">Slide 5 / 30</span>
+            <span class="slide-part">第1部 契約の基本 ― 売買契約</span>
+          </div>
+          <div class="slide-body">
+            <div class="slide-title">売買契約の3つの性質（3大タグ）</div>
+            
+            <div class="slide-content-text">⚖️【双務（そうむ）】お互いに義務がある（渡す義務 ⇄ 払う義務）
+💰【有償（ゆうしょう）】対価がある（タダではなく見返りを交換）
+🤝【諾成（だくせい）】合意だけで成立（書類やハンコは必須でない）</div>
+            <div class="slide-notes">
+              <strong>🎙️ 講演者用ノート（話す要点・語りかけ）</strong>
+              売買契約の3つの性質です。「双務・有償・諾成」。お互いに義務があり、対価があり、合意だけで成立する。この3つは働く契約でも同じです。
+            </div>
+          </div>
+        </div>
+  
+        <div class="slide-card">
+          <div class="slide-header">
+            <span class="slide-num">Slide 6 / 30</span>
+            <span class="slide-part">第1部 契約の基本 ― 売買契約</span>
+          </div>
+          <div class="slide-body">
+            <div class="slide-title">債権と債務はコインの表と裏 ＆ 契約のゴール「完遂」</div>
+            
+            <div class="slide-content-text">🔴 債務（さいむ）＝「しなければならない義務」（商品を渡す／お金を払う）
+🔵 債権（さいけん）＝「求めてよい権利」（商品を求める／お金を求める）
+👉 相手の義務は自分の権利。表裏一体のパートナーシップ！
+
+🏁 契約のゴール ＝「完遂（かんすい）」
+・お互いが義務を果たし終えること＝履行。最後までやり切ることで信頼が生まれる！</div>
+            <div class="slide-notes">
+              <strong>🎙️ 講演者用ノート（話す要点・語りかけ）</strong>
+              「債務＝しなければならないこと」「債権＝求めてよいこと」です。相手の義務は自分の権利。そして双方が義務を果たし切ることを「完遂」と言います。
+            </div>
+          </div>
+        </div>
+  
+        <div class="slide-card">
+          <div class="slide-header">
+            <span class="slide-num">Slide 7 / 30</span>
+            <span class="slide-part">第1部 契約の基本 ― 売買契約</span>
+          </div>
+          <div class="slide-body">
+            <div class="slide-title">【図解】売買契約の全体マップ</div>
+            <img src="fig1_baibai.png" class="slide-img-preview" alt="スライド図解">
+            <div class="slide-content-text">【図1】売主（お店）と買主（お客さん）の双方向矢印、引渡しと代金の表裏一体、双務・有償・諾成タグ、完遂ゴール。</div>
+            <div class="slide-notes">
+              <strong>🎙️ 講演者用ノート（話す要点・語りかけ）</strong>
+              図1の全体図です。左が売主、右が買主。商品の引渡しとお金の支払いが双方向で結ばれ、双務・有償・諾成となっています。
+            </div>
+          </div>
+        </div>
+  
+        <div class="slide-card">
+          <div class="slide-header">
+            <span class="slide-num">Slide 8 / 30</span>
+            <span class="slide-part">第1部 契約の基本 ― 売買契約</span>
+          </div>
+          <div class="slide-body">
+            <div class="slide-title">AIとの接点 ― アプリやAIの「利用規約」も契約</div>
+            
+            <div class="slide-content-text">📱「同意する」を押す ＝ サービス利用契約（定型約款）
+・無料ツールでも契約成立！禁止事項を守る義務を負う
+
+⚠️ AIは当事者になれない！
+・AIは道具であり人間ではない。「AIが勝手にやった」は通用しない
+👉 約束をし、責任を負うのは必ず【人間】です！</div>
+            <div class="slide-notes">
+              <strong>🎙️ 講演者用ノート（話す要点・語りかけ）</strong>
+              生成AIの「同意する」も立派な契約です。そして最も大事なこと：AIは当事者になれません。約束し、責任を負うのは必ず人間です。
+            </div>
+          </div>
+        </div>
+  
+        <div class="slide-card">
+          <div class="slide-header">
+            <span class="slide-num">Slide 9 / 30</span>
+            <span class="slide-part">第2部 労働契約</span>
+          </div>
+          <div class="slide-body">
+            <div class="slide-title">第2部 労働契約 ― 【クイズ】手に入る「権利」とは？</div>
+            
+            <div class="slide-content-text">❓ 問い：会社と働く契約を結ぶとき、手に入る「一番の権利」は？
+
+👉 答え：給料をもらう権利 ＋ 安全に配慮してもらう権利！
+💴 賃金支払請求権：働いた分の給料をきっちりもらう権利
+🛡️ 安全配慮を受ける権利：心身の健康と安全を守ってもらう権利
+★「働く契約を結ぶことは、法律で強く守られる権利を手に入れること！」</div>
+            <div class="slide-notes">
+              <strong>🎙️ 講演者用ノート（話す要点・語りかけ）</strong>
+              第2部は労働契約です。働くことで手に入る最大の権利は？給料はもちろん、健康や安全に配慮してもらう権利も手に入ります。働くことは法律で守られることなのです。
+            </div>
+          </div>
+        </div>
+  
+        <div class="slide-card">
+          <div class="slide-header">
+            <span class="slide-num">Slide 10 / 30</span>
+            <span class="slide-part">第2部 労働契約</span>
+          </div>
+          <div class="slide-body">
+            <div class="slide-title">労働契約（労契法6条）― 会社と働く人の権利・義務</div>
+            
+            <div class="slide-content-text">🏢 会社（事業主）：
+【権限】👉 指揮命令権（業務の進め方を指示できる）
+【義務】🔴 賃金支払債務 ＋ 🛡️ 安全配慮義務（労契法5条：健康と安全を守る）
+
+👩‍💻 働く人（労働者）：
+【権利】🔵 賃金支払請求権（給料を求める権利）
+【義務】🔴 労務提供義務 ＋ 💼 職務専念・職場秩序遵守（集中＆秘密保持）</div>
+            <div class="slide-notes">
+              <strong>🎙️ 講演者用ノート（話す要点・語りかけ）</strong>
+              労働契約法第6条です。「働くこと」と「給料」の交換です。会社には指揮命令権がありますが、安全配慮義務も負っています。対等なパートナーシップです。
+            </div>
+          </div>
+        </div>
+  
+        <div class="slide-card">
+          <div class="slide-header">
+            <span class="slide-num">Slide 11 / 30</span>
+            <span class="slide-part">第2部 労働契約</span>
+          </div>
+          <div class="slide-body">
+            <div class="slide-title">【図解】労働契約の全体マップ</div>
+            <img src="fig2_roudou.png" class="slide-img-preview" alt="スライド図解">
+            <div class="slide-content-text">【図2】事業主（会社）と労働者、点線の指揮命令権、別枠の安全配慮義務（労契法5条）、AI補足吹き出し。</div>
+            <div class="slide-notes">
+              <strong>🎙️ 講演者用ノート（話す要点・語りかけ）</strong>
+              図2です。左が会社、右が労働者。指揮命令権と安全配慮義務があり、AIの指示も指揮命令権の行使、秘密保持は秩序遵守の一部です。
+            </div>
+          </div>
+        </div>
+  
+        <div class="slide-card">
+          <div class="slide-header">
+            <span class="slide-num">Slide 12 / 30</span>
+            <span class="slide-part">第2部 労働契約</span>
+          </div>
+          <div class="slide-body">
+            <div class="slide-title">労働契約とAIの接点 ― 現場のルールと安心配慮</div>
+            
+            <div class="slide-content-text">🔒 働く側のルール：
+・指揮命令：会社の指示したツールを使う
+・職務専念：勤務中は仕事の制作に集中
+・秘密保持：顧客データや未公開情報をAIに入力しない！（外部流出と同じ！）
+
+🛡️ 会社の安全配慮義務：
+・目の疲れへの配慮／不快画像が出たときの心のケア／新ツールの研修
+★「しんどい時は遠慮なく会社に伝えてOK！」</div>
+            <div class="slide-notes">
+              <strong>🎙️ 講演者用ノート（話す要点・語りかけ）</strong>
+              現場でのルールです。会社の秘密をAIに入力するのは外部流出と同じで厳禁。一方で、画面疲れや心の負担を感じたら遠慮なく申し出てください。会社の義務だからです。
+            </div>
+          </div>
+        </div>
+  
+        <div class="slide-card">
+          <div class="slide-header">
+            <span class="slide-num">Slide 13 / 30</span>
+            <span class="slide-part">第2部 労働契約</span>
+          </div>
+          <div class="slide-body">
+            <div class="slide-title">B型事業所の位置づけ ― 今の皆さんの安心な環境</div>
+            
+            <div class="slide-content-text">🏢【A型事業所】雇用契約（労働者）／賃金（最賃法適用）／労働義務あり
+🏡【B型事業所】利用契約（福祉サービス）／工賃／体調に合わせて通所可能
+
+🛡️ 実質的な安全配慮義務：事業所は利用者の安全と健康を守り支援する義務を負っています。
+「保護されながら安心してスキルを伸ばせる、未来への大切なステップの場」！</div>
+            <div class="slide-notes">
+              <strong>🎙️ 講演者用ノート（話す要点・語りかけ）</strong>
+              今の皆さんの立場であるB型事業所です。雇用契約ではなく利用契約で、受け取るのは工賃です。事業所が手厚く安全に配慮し支援してくれます。安心してスキルを磨いてください。
+            </div>
+          </div>
+        </div>
+  
+        <div class="slide-card">
+          <div class="slide-header">
+            <span class="slide-num">Slide 14 / 30</span>
+            <span class="slide-part">第2部 労働契約</span>
+          </div>
+          <div class="slide-body">
+            <div class="slide-title">【図解】B型事業所の利用契約の構造マップ</div>
+            <img src="fig4_riyou.png" class="slide-img-preview" alt="スライド図解">
+            <div class="slide-content-text">【図4】事業所（B型）と利用者、支援・助言（≠指揮命令）、安全配慮・支援義務、要式タグ、市町村枠。</div>
+            <div class="slide-notes">
+              <strong>🎙️ 講演者用ノート（話す要点・語りかけ）</strong>
+              図4です。図2と同じ形ですが、点線矢印は命令ではなく「支援・助言」、タグは「要式」です。温かい支援と保護が仕組み化されています。
+            </div>
+          </div>
+        </div>
+  
+        <div class="slide-card">
+          <div class="slide-header">
+            <span class="slide-num">Slide 15 / 30</span>
+            <span class="slide-part">第2部 労働契約</span>
+          </div>
+          <div class="slide-body">
+            <div class="slide-title">【図解】労働契約と利用契約の比較表</div>
+            <img src="fig5_hikakuhyou.png" class="slide-img-preview" alt="スライド図解">
+            <div class="slide-content-text">【図5】労働契約と利用契約の5項目比較表。共通点は「安全への配慮」。「将来一般就労に進んだときは、図2の権利がそのまま自分のものになる」。</div>
+            <div class="slide-notes">
+              <strong>🎙️ 講演者用ノート（話す要点・語りかけ）</strong>
+              図5の比較表です。違いと共通点（安全への配慮）を確認しましょう。将来一般就労に進んだとき、今日学んだ図2の権利が自分のものになります。
+            </div>
+          </div>
+        </div>
+  
+        <div class="slide-card">
+          <div class="slide-header">
+            <span class="slide-num">Slide 16 / 30</span>
+            <span class="slide-part">第3部 委託契約 ― 作品を納めるときの契約</span>
+          </div>
+          <div class="slide-body">
+            <div class="slide-title">第3部 委託契約 ― 作品を納めるときの契約【クイズ】</div>
+            
+            <div class="slide-content-text">❓ 問い：企業から動画制作を頼まれたとき、企業は「作り方」まで指示できる？
+
+👉 答え：「指示できない！」（指揮命令権なし ❌）
+・頼む側は「完成した結果（作品）」を求め、やり方は任せるのが原則！
+・プロとして任され、成果物で勝負する契約です。
+★ 皆さんが事業所で制作している仕事は、まさにこのプロの現場です！</div>
+            <div class="slide-notes">
+              <strong>🎙️ 講演者用ノート（話す要点・語りかけ）</strong>
+              第3部は委託契約（作品を納める契約）です。クイズ：発注元の会社は作り方まで口出しできる？答えは「できない」です。結果で勝負するプロの仕事です。
+            </div>
+          </div>
+        </div>
+  
+        <div class="slide-card">
+          <div class="slide-header">
+            <span class="slide-num">Slide 17 / 30</span>
+            <span class="slide-part">第3部 委託契約 ― 作品を納めるときの契約</span>
+          </div>
+          <div class="slide-body">
+            <div class="slide-title">委託契約の2つの型 ― 請負と準委任</div>
+            
+            <div class="slide-content-text">🎬【請負（うけおい）】成果物を完成させて納める契約（完成が条件！）
+★ 事業所が受けるのはコレ！皆さんはその履行を担っています。
+
+📋【準委任（じゅんいにん）】作業そのものを提供する契約（完成は条件でない）
+
+🌟 皆さんの日々の画像・動画制作は、企業の「請負契約」を立派に完遂させています！</div>
+            <div class="slide-notes">
+              <strong>🎙️ 講演者用ノート（話す要点・語りかけ）</strong>
+              委託には請負と準委任があります。皆さんが携わっているのは請負です。完成させて納品する仕事です。皆さんはすでにプロと同じサイクルを回しています。
+            </div>
+          </div>
+        </div>
+  
+        <div class="slide-card">
+          <div class="slide-header">
+            <span class="slide-num">Slide 18 / 30</span>
+            <span class="slide-part">第3部 委託契約 ― 作品を納めるときの契約</span>
+          </div>
+          <div class="slide-body">
+            <div class="slide-title">【図解】委託契約（請負）の構造マップ</div>
+            <img src="fig3_itaku.png" class="slide-img-preview" alt="スライド図解">
+            <div class="slide-content-text">【図3】発注者と受注者、指揮命令権なし（×）、契約書6大チェックリスト、債務不履行警告、履行フロー。</div>
+            <div class="slide-notes">
+              <strong>🎙️ 講演者用ノート（話す要点・語りかけ）</strong>
+              図3です。指揮命令権はなく、成果物の納品と報酬の交換です。契約書の6大項目、警告枠、履行フローが示されています。
+            </div>
+          </div>
+        </div>
+  
+        <div class="slide-card">
+          <div class="slide-header">
+            <span class="slide-num">Slide 19 / 30</span>
+            <span class="slide-part">第3部 委託契約 ― 作品を納めるときの契約</span>
+          </div>
+          <div class="slide-body">
+            <div class="slide-title">契約書で決められている内容 ― 6つのチェックリスト</div>
+            
+            <div class="slide-content-text">☑ 仕様（サイズ・尺・用途）　☑ 納期（いつまでに納めるか）
+☑ 修正は何回まで無料か　☑ 権利の帰属（著作権は誰へ）
+☑ AI使用の開示（隠さず伝える）　☑ 権利を侵害しない保証
+
+🛡️ 契約書は自分たちを縛るものではなく、無理な要求から身を守る「防具（盾）」です！</div>
+            <div class="slide-notes">
+              <strong>🎙️ 講演者用ノート（話す要点・語りかけ）</strong>
+              契約書の内容です。特に「修正回数」を決めておくことは重要です。無限修正を防ぐ盾になります。約束どおり納めて初めて「履行」になります。
+            </div>
+          </div>
+        </div>
+  
+        <div class="slide-card">
+          <div class="slide-header">
+            <span class="slide-num">Slide 20 / 30</span>
+            <span class="slide-part">第3部 委託契約 ― 作品を納めるときの契約</span>
+          </div>
+          <div class="slide-body">
+            <div class="slide-title">達成できなかったら？ ― 役割分担と安心のチーム</div>
+            
+            <div class="slide-content-text">⚠️ 債務不履行のリスク：
+・納期遅れ・仕様違い・修正超過 ➔「債務不履行」
+・「AIで作ったから」は通用しない。約束は人が守る！
+
+🛡️ だから事業所がある！
+・利用者が一人で法的責任を負わないよう事業所が調整・管理！
+👉 皆さんは守られた環境の中で、安心して制作に集中できます！</div>
+            <div class="slide-notes">
+              <strong>🎙️ 講演者用ノート（話す要点・語りかけ）</strong>
+              納期に遅れると債務不履行になりますが、事業所の支援員が契約を調整し皆さんを守っています。皆さんは安心して制作に専念してください。
+            </div>
+          </div>
+        </div>
+  
+        <div class="slide-card">
+          <div class="slide-header">
+            <span class="slide-num">Slide 21 / 30</span>
+            <span class="slide-part">第3部 委託契約 ― 作品を納めるときの契約</span>
+          </div>
+          <div class="slide-body">
+            <div class="slide-title">仕事の流れ（履行フロー）と知っておきたい「偽装請負」</div>
+            
+            <div class="slide-content-text">🏁 履行の流れ：①契約書確認 ➔ ②制作 ➔ ③納品 ➔ ④検収 ➔ ⑤報酬支払 ➔ 完遂！
+
+⚠️ 偽装請負（ぎそううけおい）に注意：
+・契約書は「委託」なのに、発注元の会社が現場で直接あれこれ指図すること！
+・法律は、契約の「名前」ではなく「働かせ方の実態」で判断します！
+👉 将来不当な扱いを受けないための、大切な知識です。</div>
+            <div class="slide-notes">
+              <strong>🎙️ 講演者用ノート（話す要点・語りかけ）</strong>
+              仕事の流れと偽装請負の解説です。委託と言いながら直接指示命令するのは違法です。法律は名前ではなく実態で判断します。自分を守る知識にしてください。
+            </div>
+          </div>
+        </div>
+  
+        <div class="slide-card">
+          <div class="slide-header">
+            <span class="slide-num">Slide 22 / 30</span>
+            <span class="slide-part">第4部 AI生成物ならではの法律問題</span>
+          </div>
+          <div class="slide-body">
+            <div class="slide-title">第4部 AI生成物ならではの法律問題【クイズ】</div>
+            
+            <div class="slide-content-text">❓ 問い：AIが自動でパッと出したイラストは、誰のものでしょう？
+
+🤖 AI全自動出力 ➔ ❌ 原則として「著作権なし」！
+（著作権は人間が創作したものにしか発生しないルールだから）
+
+✍️ 人の創作的工夫 ➔ ⭕ 著作権が生まれる可能性！
+（プロンプトの工夫、構図指定、加筆・レタッチ、編集合成）</div>
+            <div class="slide-notes">
+              <strong>🎙️ 講演者用ノート（話す要点・語りかけ）</strong>
+              第4部はAI生成物の法律問題です。AIが出した絵は原則著作権がありません。皆さんの工夫や加筆が入って初めて著作権が生まれます。
+            </div>
+          </div>
+        </div>
+  
+        <div class="slide-card">
+          <div class="slide-header">
+            <span class="slide-num">Slide 23 / 30</span>
+            <span class="slide-part">第4部 AI生成物ならではの法律問題</span>
+          </div>
+          <div class="slide-body">
+            <div class="slide-title">著作権のルール ― 人の創作的関与と契約条項</div>
+            
+            <div class="slide-content-text">🎨 人の創作的関与：
+・詳細なプロンプトの工夫／厳選／加筆・レタッチ／動画の編集
+👉 あなたの「工夫」が加わることで作品に著作権が宿ります！
+
+📜 契約書の「権利条項」：
+・作品の権利を誰に譲渡・許諾するか事前にハッキリ決めておく！
+👉 お互いに安心して作品を使えるようになります。</div>
+            <div class="slide-notes">
+              <strong>🎙️ 講演者用ノート（話す要点・語りかけ）</strong>
+              皆さんが工夫し加筆修正した部分には創作性が宿ります。だからこそ契約書で権利の帰属を明確にしておくことが大切です。
+            </div>
+          </div>
+        </div>
+  
+        <div class="slide-card">
+          <div class="slide-header">
+            <span class="slide-num">Slide 24 / 30</span>
+            <span class="slide-part">第4部 AI生成物ならではの法律問題</span>
+          </div>
+          <div class="slide-body">
+            <div class="slide-title">他人の権利を傷つけないためのルール（4大NG）</div>
+            
+            <div class="slide-content-text">❌ 有名キャラの模倣（著作権侵害）
+❌ 有名人の顔・肖像（肖像権侵害）
+❌ 特定作家の画風丸パクリ（トラブルの元）
+❌ 仲間や職員の写真利用（無断学習NG）
+
+💡 他者の権利をリスペクトすることが、自分の作品を守る道です！</div>
+            <div class="slide-notes">
+              <strong>🎙️ 講演者用ノート（話す要点・語りかけ）</strong>
+              やってはいけない4つの注意点です。キャラ模倣、有名人の顔、特定作家の作風、身近な仲間の写真。他人の権利を大切にすることが、自分の作品を守ることにつながります。
+            </div>
+          </div>
+        </div>
+  
+        <div class="slide-card">
+          <div class="slide-header">
+            <span class="slide-num">Slide 25 / 30</span>
+            <span class="slide-part">第4部 AI生成物ならではの法律問題</span>
+          </div>
+          <div class="slide-body">
+            <div class="slide-title">責任は誰にある？ ― 一人で背負わずチームで確認！</div>
+            
+            <div class="slide-content-text">⚠️ 責任の所在：使った人・納品した人（AIは責任をとれない）
+「AIが勝手に出した」は通用しない。責任は人間が負う。
+
+🤝 チームで確認！ 一人で抱え込まなくてOK！
+・「これ似てないかな？」と相談する／納品前のダブルチェック！
+★「相談すること自体が、プロの最大のスキル」です！</div>
+            <div class="slide-notes">
+              <strong>🎙️ 講演者用ノート（話す要点・語りかけ）</strong>
+              責任は人間が負いますが、一人で抱え込む必要はありません。事業所チームで納品前にダブルチェックしましょう。相談できる人が一番信頼されます。
+            </div>
+          </div>
+        </div>
+  
+        <div class="slide-card">
+          <div class="slide-header">
+            <span class="slide-num">Slide 26 / 30</span>
+            <span class="slide-part">まとめ</span>
+          </div>
+          <div class="slide-body">
+            <div class="slide-title">まとめ① 今日の話は「知っておくと安心」の話</div>
+            
+            <div class="slide-content-text">🛡️「守れ！」ではなく「自分と作品を守るための盾」
+
+・今日の話は、禁止事項を押し付けるものではありません。
+・契約を知ることは、不当に損をせず自分と作品を守る「防具」を持つこと。
+・難しい法律用語を丸暗記する必要はありません。
+★「ひとつでも後で思い出せれば100点満点」です！</div>
+            <div class="slide-notes">
+              <strong>🎙️ 講演者用ノート（話す要点・語りかけ）</strong>
+              まとめの1つ目：「知っておくと安心の話」です。「守れ」と怒る話ではありません。自分を守る盾です。何か1つでも思い出せれば大成功です。
+            </div>
+          </div>
+        </div>
+  
+        <div class="slide-card">
+          <div class="slide-header">
+            <span class="slide-num">Slide 27 / 30</span>
+            <span class="slide-part">まとめ</span>
+          </div>
+          <div class="slide-body">
+            <div class="slide-title">まとめ② 皆さんは、すでに契約の世界で仕事をしている！</div>
+            
+            <div class="slide-content-text">💼 今の作業が、すでに「請負契約の履行」そのもの！
+
+・AIで作った作品が誰かに届く ＝ 請負契約の立派な履行。
+・「約束を受けて、形にして、納める」というビジネスの基本サイクル。
+・皆さんは一般就労のプロと同じ仕事の流れをすでに経験しています。
+★ この経験は、将来の大きな強み・自信になります！</div>
+            <div class="slide-notes">
+              <strong>🎙️ 講演者用ノート（話す要点・語りかけ）</strong>
+              まとめの2つ目：「すでに契約の世界で仕事をしている」。皆さんの作業は請負の履行そのものです。一般就労と同じサイクルを回しています。自信と誇りを持ってください。
+            </div>
+          </div>
+        </div>
+  
+        <div class="slide-card">
+          <div class="slide-header">
+            <span class="slide-num">Slide 28 / 30</span>
+            <span class="slide-part">まとめ</span>
+          </div>
+          <div class="slide-body">
+            <div class="slide-title">まとめ③ 一般就労に進むとき、今日の話が「自分の権利」になる</div>
+            
+            <div class="slide-content-text">🚀 労働契約を結んだ瞬間、手厚い「権利」が手に入る！
+
+・給料を受け取る権利、安全に配慮してもらう権利が自分のものになる！
+・指示に従い集中して働く責任とともに、法律で強く守られます。
+・今日の話は、「知らなかった」で困らないための最高のお守り・予習！
+★ 権利を味方につけて、堂々と一般就労へ進みましょう！</div>
+            <div class="slide-notes">
+              <strong>🎙️ 講演者用ノート（話す要点・語りかけ）</strong>
+              まとめの3つ目：「一般就労で自分の権利になる」。就職した瞬間、賃金請求権や健康配慮を受ける権利が手に入ります。今日の話はその予習です。堂々と進みましょう！
+            </div>
+          </div>
+        </div>
+  
+        <div class="slide-card">
+          <div class="slide-header">
+            <span class="slide-num">Slide 29 / 30</span>
+            <span class="slide-part">まとめ</span>
+          </div>
+          <div class="slide-body">
+            <div class="slide-title">まとめ④ 迷ったときは、一人で抱えず「聞く」</div>
+            
+            <div class="slide-content-text">🤝「相談すること自体が、契約を守る一番確実な方法」
+
+・納期が厳しそう、権利侵害が不安…迷ったらすぐ職員や支援員に相談！
+・AIは道具、責任は人。でも「人」は一人で背負う必要はありません！
+・チームで助け合うことこそが、一番確実なプロの仕事の進め方です。</div>
+            <div class="slide-notes">
+              <strong>🎙️ 講演者用ノート（話す要点・語りかけ）</strong>
+              まとめの4つ目：「迷ったときは、一人で抱えず、聞く」。不安なときはすぐ支援員に相談してください。相談すること自体が契約を守る最善の行動です。
+            </div>
+          </div>
+        </div>
+  
+        <div class="slide-card">
+          <div class="slide-header">
+            <span class="slide-num">Slide 30 / 30</span>
+            <span class="slide-part">まとめ</span>
+          </div>
+          <div class="slide-body">
+            <div class="slide-title">まとめ⑤ 結び ― 誇りを持って未来へ！ ＆ ご質問をどうぞ</div>
+            
+            <div class="slide-content-text">🌈 今日のセミナーはゴールではなく、未来への「きっかけ」
+・法律やルールを味方につけてAIスキルを磨けば、一般就労の道がひらける！
+・皆さんの作品が、契約という約束の上で誰かの役に立っていることを誇りに思ってください！
+
+🌸 ご清聴ありがとうございました！お気軽にご質問をどうぞ！</div>
+            <div class="slide-notes">
+              <strong>🎙️ 講演者用ノート（話す要点・語りかけ）</strong>
+              まとめの5つ目：結びです。今日のセミナーはゴールではなく未来へのきっかけです。皆さんの作品は誰かの役に立っています。誇りを持って進みましょう！ありがとうございました。ご質問をどうぞ！
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+
+    <!-- パネル3: レジュメPDFプレビュー -->
+    <div id="tab-resume" class="tab-pane">
+      <div style="background:#ffffff; border-radius:12px; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,0.05); text-align:center;">
+        <h3 style="margin:0 0 15px 0;">配付用レジュメ（A4・2枚以内：houritsu_to_AI_resume.pdf）</h3>
+        <p style="color:#718096; margin-bottom:15px;">※ブラウザのPDFビューアで直接閲覧できます</p>
+        <object data="houritsu_to_AI_resume.pdf" type="application/pdf" width="100%" height="950px" style="border:1px solid #cbd5e0; border-radius:8px;">
+          <p>PDFが表示されない場合は、<a href="houritsu_to_AI_resume.pdf" target="_blank">こちらをクリックしてPDFを開いてください</a>。</p>
+        </object>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      
+      document.getElementById('tab-' + tabId).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
